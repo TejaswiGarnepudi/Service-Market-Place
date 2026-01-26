@@ -1,25 +1,24 @@
-import LoginPage from "./components/LoginPage";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from "./components/Homepage";
+import LoginPage from "./authentication/LoginPage";
+import RegisterPage from "./authentication/RegisterPage";
+import Navbar from "./components/Navbar";
+
 import "./App.css";
 
 function App() {
   return (
-    <div className="app">
-      <LoginPage />
-    <div>
-      <Router>
-        <NavScrollExample/>
-        <Routes>
-          <Route path='/HomePage' element={<Homepage/>}/>
-          <Route path='/About' element={<About/>}/>
-          <Route path='/UserProfile' element={<UserProfile/>}/>
-          <Route path='/Notifications' element={<Notifications/>}/>
-          <Route path='/ServiceDetails' element={<ServiceDetails/>}/>
-          <Route path='/register' element={<RegisterPage/>}/>
-          {/* <Route path='/user/:userId' element={<UserProfile/>}/> */}
+    <Router>
+      <Navbar />   {/* Visible on all pages */}
 
+      <div className="app">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/register" element={<RegisterPage />} /> 
         </Routes>
-      </Router>
-    </div>
+      </div>
+    </Router>
   );
 }
 
