@@ -1,3 +1,4 @@
+import React from 'react'
 export default function LoginPage() {
   return (
     <div className="login-container">
@@ -16,14 +17,3 @@ export default function LoginPage() {
     </div>
   );
 }
-import React from 'react'
-
-const LoginPage = () => {
-  return (
-    <div>
-      LoginPage
-    </div>
-  )
-}
-
-export default LoginPage

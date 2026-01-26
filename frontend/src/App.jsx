@@ -1,17 +1,5 @@
 import LoginPage from "./components/LoginPage";
 import "./App.css";
-import React from 'react'
-import NavScrollExample from './components/Navbar';
-
-import 'bootstrap/dist/css/bootstrap.min.css';
-import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
-import About from './components/About';
-import Home from './components/HomePage';
-import UserProfile from './components/UserProfilePage';
-import Notifications from './components/Notifications';
-import ServiceDetails from './components/ServiceDetails';
-import RegisterPage from './authentication/RegisterPage';
-import Homepage from './components/HomePage';
 
 function App() {
   return (

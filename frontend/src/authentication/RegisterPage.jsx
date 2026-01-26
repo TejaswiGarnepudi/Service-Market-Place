@@ -1,4 +1,6 @@
 import React from 'react'
+
+export default RegisterPage
 import { useState } from 'react';
 
 export default function RegisterPage() {
