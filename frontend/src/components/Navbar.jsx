@@ -19,11 +19,13 @@ function NavScrollExample() {
             style={{ maxHeight: '100px' }}
             navbarScroll
           >
-            <Link to='/HomePage'>Home</Link>
-            <Link to='/About'>About</Link>
-            <Link to='/UserProfilePage'>UserProfilePage</Link>
+            <Link to="/" style={{ marginRight: "15px" }}>Home</Link>
+            <Link to="/login" style={{ marginRight: "15px" }}>Login</Link>
+            <Link to="/register" style={{ marginRight: "15px" }}>Register</Link>
+            {/* <Link to='/UserProfilePage'>UserProfilePage</Link>
             <Link to='/ServiceDetails'>ServiceDetails</Link>
             <Link to='/Notifications'>Notifications</Link>
+            <Link to='/register'>Register</Link> */}
             
           </Nav>
           

@@ -1,31 +1,25 @@
-import React from 'react'
-import NavScrollExample from './components/Navbar';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from "./components/Homepage";
+import LoginPage from "./authentication/LoginPage";
+import RegisterPage from "./authentication/RegisterPage";
+import Navbar from "./components/Navbar";
 
-import 'bootstrap/dist/css/bootstrap.min.css';
-import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
-import About from './components/About';
-import Home from './components/HomePage';
-import UserProfile from './components/UserProfilePage';
-import Notifications from './components/Notifications';
-import ServiceDetails from './components/ServiceDetails';
-const App = () => {
+import "./App.css";
+
+function App() {
   return (
-    <div>
-      <Router>
-        <NavScrollExample/>
-        <Routes>
-          <Route path='/HomePage' element={<Home/>}/>
-          <Route path='/about' element={<About/>}/>
-          <Route path='/userprofilePage' element={<UserProfile/>}/>
-          <Route path='/Notifications' element={<Notifications/>}/>
-          <Route path='/ServiceDetails' element={<ServiceDetails/>}/>
-          {/* <Route path='/user/:userId' element={<UserProfile/>}/> */}
+    <Router>
+      <Navbar />   {/* Visible on all pages */}
 
+      <div className="app">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/register" element={<RegisterPage />} /> 
         </Routes>
-      </Router>
-    
-    </div>
-  )
+      </div>
+    </Router>
+  );
 }
 
-export default App
+export default App;
