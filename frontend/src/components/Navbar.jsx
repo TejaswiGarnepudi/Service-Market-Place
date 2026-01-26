@@ -24,6 +24,7 @@ function NavScrollExample() {
             <Link to='/UserProfilePage'>UserProfilePage</Link>
             <Link to='/ServiceDetails'>ServiceDetails</Link>
             <Link to='/Notifications'>Notifications</Link>
+            <Link to='/register'>Register</Link>
             
           </Nav>
           

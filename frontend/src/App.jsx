@@ -8,22 +8,25 @@ import Home from './components/HomePage';
 import UserProfile from './components/UserProfilePage';
 import Notifications from './components/Notifications';
 import ServiceDetails from './components/ServiceDetails';
+import RegisterPage from './authentication/RegisterPage';
+import Homepage from './components/HomePage';
+
 const App = () => {
   return (
     <div>
       <Router>
         <NavScrollExample/>
         <Routes>
-          <Route path='/HomePage' element={<Home/>}/>
-          <Route path='/about' element={<About/>}/>
-          <Route path='/userprofilePage' element={<UserProfile/>}/>
+          <Route path='/HomePage' element={<Homepage/>}/>
+          <Route path='/About' element={<About/>}/>
+          <Route path='/UserProfile' element={<UserProfile/>}/>
           <Route path='/Notifications' element={<Notifications/>}/>
           <Route path='/ServiceDetails' element={<ServiceDetails/>}/>
+          <Route path='/register' element={<RegisterPage/>}/>
           {/* <Route path='/user/:userId' element={<UserProfile/>}/> */}
 
         </Routes>
       </Router>
-    
     </div>
   )
 }
