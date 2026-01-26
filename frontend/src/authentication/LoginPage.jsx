@@ -16,3 +16,14 @@ export default function LoginPage() {
     </div>
   );
 }
+import React from 'react'
+
+const LoginPage = () => {
+  return (
+    <div>
+      LoginPage
+    </div>
+  )
+}
+
+export default LoginPage
