@@ -1,3 +1,5 @@
+import LoginPage from "./components/LoginPage";
+import "./App.css";
 import React from 'react'
 import NavScrollExample from './components/Navbar';
 
@@ -11,8 +13,10 @@ import ServiceDetails from './components/ServiceDetails';
 import RegisterPage from './authentication/RegisterPage';
 import Homepage from './components/HomePage';
 
-const App = () => {
+function App() {
   return (
+    <div className="app">
+      <LoginPage />
     <div>
       <Router>
         <NavScrollExample/>
@@ -28,7 +32,7 @@ const App = () => {
         </Routes>
       </Router>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
