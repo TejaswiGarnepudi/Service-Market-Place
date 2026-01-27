@@ -1,0 +1,132 @@
+/* FULL PAGE WRAPPER */
+.login-wrapper {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+  font-family: "Segoe UI", sans-serif;
+}
+
+/* LEFT IMAGE SECTION */
+.login-image {
+  width: 55%;
+  background-image: url("https://images.unsplash.com/photo-1521791136064-7986c2920216");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.overlay {
+  height: 100%;
+  width: 100%;
+  background: rgba(37, 99, 235, 0.7);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 80px;
+}
+
+.overlay h1 {
+  font-size: 44px;
+  margin-bottom: 20px;
+}
+
+.overlay p {
+  font-size: 18px;
+  max-width: 450px;
+}
+
+/* RIGHT FORM SECTION */
+.login-form-section {
+  width: 45%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f9fafb;
+}
+
+.login-box {
+  width: 380px;
+  background: white;
+  padding: 45px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+}
+
+.login-box h2 {
+  color: #1e3a8a;
+  margin-bottom: 8px;
+}
+
+.login-box p {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 25px;
+}
+
+/* INPUTS */
+.login-box input {
+  width: 100%;
+  padding: 14px;
+  margin-bottom: 18px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+/* BUTTON */
+.login-box button {
+  width: 100%;
+  padding: 14px;
+  background: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.login-box button:hover {
+  background: #1e40af;
+}
+
+/* LINKS */
+.extra-links {
+  margin-top: 12px;
+  text-align: right;
+}
+
+.extra-links a {
+  font-size: 13px;
+  color: #2563eb;
+  text-decoration: none;
+}
+
+.register-text {
+  margin-top: 22px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.register-text a {
+  color: #2563eb;
+  font-weight: 500;
+  text-decoration: none;
+}
+ */
+
+ .popup-box button {
+  margin-top: 20px;
+  padding: 8px 25px;
+  background: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.popup-box button:hover {
+  background: #1e40af;
+}
+
