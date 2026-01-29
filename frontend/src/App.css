@@ -1,162 +1,13 @@
-/* #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-} */
-
-
-/* .app {
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.login-container {
-  width: 320px;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.login-container h2 {
-  text-align: center;
-  margin-bottom: 4px;
-}
-
-.subtitle {
-  text-align: center;
-  font-size: 14px;
-  color: #666;
-  margin-bottom: 10px;
-}
-
-.login-container input {
-  padding: 10px;
-  font-size: 14px;
-}
-
-.login-container button {
-  padding: 10px;
-  background-color: #2563eb;
-  color: white;
-  border: none;
-  cursor: pointer;
-}
-
-.login-container button:hover {
-  background-color: #1d4ed8;
-}
-
-.links {
-  display: flex;
-  justify-content: space-between;
-  font-size: 13px;
-}
-
-.links a {
-  text-decoration: none;
-  color: #2563eb;
-} */
-
-/* ============================= */
-/* RESPONSIVE DESIGN */
-/* ============================= */
-
-/* Mobile devices
-@media (max-width: 768px) {
-  .app {
-    padding: 16px;
-    align-items: flex-start;
-  }
-
-  .login-container {
-    width: 100%;
-    max-width: 360px;
-    margin-top: 40px;
-  }
-
-  .login-container input,
-  .login-container button {
-    font-size: 16px;
-  }
-
-  .links {
-    flex-direction: column;
-    gap: 8px;
-    text-align: center;
-  }
-}
-
-/* Very small devices */
-/* @media (max-width: 480px) {
-  .login-container {
-    padding: 10px;
-  }
-
-  .login-container h2 {
-    font-size: 20px;
-  }
-
-  .subtitle {
-    font-size: 13px;
-  }
-}
- */ 
-
- /* ============================= */
-/* MAIN APP LAYOUT */
-/* ============================= */
-
 .app {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;          /* FIXED: height -> min-height */
+  min-height: 100vh;      
   background-color: #f5f5f5;
-  overflow-x: hidden;         /* FIX: prevents animation shake */
+  overflow-x: hidden;         
 }
 
-/* ============================= */
-/* LOGIN & REGISTER CONTAINERS */
-/* ============================= */
+
 
 .login-container,
 .register-container {
@@ -174,9 +25,7 @@
   animation: slideIn 0.6s ease-in-out;
 }
 
-/* ============================= */
-/* FORM ELEMENTS */
-/* ============================= */
+
 
 .login-container h2,
 .register-container h2 {
@@ -223,9 +72,6 @@
   font-size: 14px;
 }
 
-/* ============================= */
-/* ANIMATION (UNCHANGED) */
-/* ============================= */
 
 @keyframes slideIn {
   from {
@@ -238,9 +84,6 @@
   }
 }
 
-/* ============================= */
-/* RESPONSIVE DESIGN */
-/* ============================= */
 
 @media (max-width: 768px) {
   .app {
@@ -254,7 +97,7 @@
     max-width: 360px;
     margin: 40px auto;
 
-    /* 🔥 VERY IMPORTANT */
+
     animation-fill-mode: both;
   }
 
