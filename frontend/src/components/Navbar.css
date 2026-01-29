@@ -1,37 +1,474 @@
+/* ===============================
+   COLOR PALETTE (MATCHING LOGIN/REGISTER)
+   =============================== */
+:root {
+  --space-cadet: #102B53;
+  --ucla-blue: #50698D;
+  --pink-lavender: #CEB5D4;
+  --cyan-azure: #4E7AB1;
+  --air-superiority-blue: #7D9FC0;
+  --chinese-black: #0E141C;
+  --police-blue: #314B6E;
+  --rackley: #607EA2;
+  --weldon-blue: #8197AC;
+  --silver-pink: #BDB3A3;
+  --cadet-grey: #959BB5;
+  --american-blue: #3A3E6C;
+  --ube: #8387C3;
+  --cool-grey: #8A8CAC;
+}
+
+/* ===============================
+   NAVBAR CONTAINER
+   =============================== */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 40px;
+  padding: 16px 60px;
   background: white;
   position: sticky;
   top: 0;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  transition: all 0.3s ease;
+  animation: slideDown 0.6s ease forwards;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Scrolled state - add shadow */
+.navbar.scrolled {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* ===============================
+   LOGO WITH ICON
+   =============================== */
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.logo-icon {
+  font-size: 32px;
+  transition: transform 0.3s ease;
+}
+
+.logo-container:hover .logo-icon {
+  transform: rotate(10deg) scale(1.1);
 }
 
 .logo {
-  color: #2563eb;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--space-cadet);
+  margin: 0;
+  letter-spacing: -0.5px;
+  transition: color 0.3s ease;
 }
 
+.logo-container:hover .logo {
+  color: var(--cyan-azure);
+}
+
+/* ===============================
+   NAVIGATION LINKS
+   =============================== */
 .nav-links {
   display: flex;
   list-style: none;
-  gap: 25px;
+  gap: 35px;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+}
+
+.nav-links li {
+  position: relative;
 }
 
 .nav-links a {
   text-decoration: none;
-  color: #333;
+  color: #374151;
+  font-size: 15px;
+  font-weight: 500;
+  padding: 8px 4px;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
 }
 
-.nav-actions a {
-  margin-left: 15px;
+/* Hover effect */
+.nav-links a:hover {
+  color: var(--cyan-azure);
 }
 
-.post-btn {
-  background: #2563eb;
-  color: white;
-  padding: 8px 15px;
-  border-radius: 6px;
+/* Active link indicator - underline */
+.nav-links a.active {
+  color: var(--cyan-azure);
+  font-weight: 600;
+}
+
+.nav-links a.active::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--cyan-azure);
+  border-radius: 2px;
+}
+
+/* Animated underline on hover */
+.nav-links a::before {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--cyan-azure);
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover::before {
+  width: 100%;
+}
+
+/* ===============================
+   ACTION BUTTONS
+   =============================== */
+.nav-actions {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+/* Login Button (Outlined) */
+.login-btn {
+  padding: 10px 28px;
+  border: 1.5px solid var(--cyan-azure);
+  background: transparent;
+  color: var(--cyan-azure);
   text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.login-btn:hover {
+  background: var(--cyan-azure);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(78, 122, 177, 0.25);
+}
+
+.login-btn:active {
+  transform: translateY(0);
+}
+
+/* Post Service Button (Solid) */
+.post-btn {
+  padding: 11px 28px;
+  background: var(--cyan-azure);
+  color: white;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(78, 122, 177, 0.2);
+}
+
+.post-btn:hover {
+  background: var(--space-cadet);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(78, 122, 177, 0.3);
+}
+
+.post-btn:active {
+  transform: translateY(0);
+}
+
+/* ===============================
+   MOBILE MENU TOGGLE
+   =============================== */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  background: transparent;
+  border: none;
+}
+
+.menu-toggle:hover {
+  background: rgba(78, 122, 177, 0.15);
+}
+
+.menu-toggle span {
+  width: 28px;
+  height: 3px;
+  background: var(--space-cadet);
+  border-radius: 3px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Animated hamburger to X */
+.menu-toggle.active span:nth-child(1) {
+  transform: rotate(45deg) translate(8px, 8px);
+}
+
+.menu-toggle.active span:nth-child(2) {
+  opacity: 0;
+  transform: translateX(-20px);
+}
+
+.menu-toggle.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(8px, -8px);
+}
+
+/* ===============================
+   MOBILE MENU
+   =============================== */
+.mobile-menu {
+  display: none;
+  position: fixed;
+  top: 70px;
+  left: 0;
+  right: 0;
+  background: white;
+  padding: 30px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  transform: translateY(-100%);
+  opacity: 0;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 999;
+}
+
+.mobile-menu.active {
+  display: block;
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.mobile-menu .nav-links {
+  flex-direction: column;
+  gap: 0;
+  margin-bottom: 20px;
+}
+
+.mobile-menu .nav-links li {
+  width: 100%;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.mobile-menu .nav-links a {
+  display: block;
+  padding: 16px 12px;
+  width: 100%;
+  border-radius: 0;
+  color: #374151;
+}
+
+.mobile-menu .nav-links a:hover {
+  background: rgba(78, 122, 177, 0.05);
+  color: var(--cyan-azure);
+}
+
+.mobile-menu .nav-actions {
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+
+.mobile-menu .login-btn,
+.mobile-menu .post-btn {
+  width: 100%;
+  text-align: center;
+  padding: 14px;
+}
+
+/* ===============================
+   SEARCH BAR (OPTIONAL ENHANCEMENT)
+   =============================== */
+.search-container {
+  position: relative;
+  margin: 0 20px;
+}
+
+.search-input {
+  padding: 10px 40px 10px 16px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px solid rgba(96, 126, 162, 0.3);
+  border-radius: 10px;
+  color: white;
+  font-size: 14px;
+  outline: none;
+  transition: all 0.3s ease;
+  width: 250px;
+}
+
+.search-input::placeholder {
+  color: var(--cadet-grey);
+}
+
+.search-input:focus {
+  border-color: var(--cyan-azure);
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 0 3px rgba(78, 122, 177, 0.15);
+  width: 300px;
+}
+
+.search-icon {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--cadet-grey);
+  pointer-events: none;
+}
+
+/* ===============================
+   NOTIFICATION BADGE (OPTIONAL)
+   =============================== */
+.notification-badge {
+  position: relative;
+}
+
+.notification-badge::after {
+  content: attr(data-count);
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  color: white;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 10px;
+  border: 2px solid var(--chinese-black);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+/* ===============================
+   RESPONSIVE DESIGN
+   =============================== */
+@media (max-width: 1024px) {
+  .navbar {
+    padding: 15px 40px;
+  }
+
+  .nav-links {
+    gap: 25px;
+  }
+
+  .search-input {
+    width: 200px;
+  }
+
+  .search-input:focus {
+    width: 250px;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 15px 25px;
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+
+  .nav-links,
+  .nav-actions,
+  .search-container {
+    display: none;
+  }
+
+  .logo {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    padding: 12px 20px;
+  }
+
+  .logo {
+    font-size: 22px;
+  }
+
+  .menu-toggle span {
+    width: 24px;
+  }
+}
+
+/* ===============================
+   SCROLL BEHAVIOR
+   =============================== */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* ===============================
+   ACCESSIBILITY
+   =============================== */
+.nav-links a:focus,
+.login-btn:focus,
+.post-btn:focus,
+.menu-toggle:focus {
+  outline: 3px solid var(--cyan-azure);
+  outline-offset: 2px;
+}
+
+/* Skip to main content link for screen readers */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 0;
+  background: var(--cyan-azure);
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  z-index: 10000;
+}
+
+.skip-link:focus {
+  top: 0;
 }
