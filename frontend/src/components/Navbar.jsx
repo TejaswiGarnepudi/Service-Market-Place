@@ -66,7 +66,7 @@ export default function Navbar() {
             </Link>
           </li>
           <li>
-            <Link to="/services" className={isActive("/services")}>
+            <Link to="/browse-services" className={isActive("/browse-services")}>
               Browse Services
             </Link>
           </li>

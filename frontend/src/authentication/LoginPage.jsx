@@ -110,10 +110,10 @@ export default function LoginPage() {
             <button type="submit">Login</button>
           </form>
 
-          <div className="extra-links">
-            <Link to="#">Forgot Password?</Link>
-          </div>
-
+            <div className="extra-links">
+              <Link to="/forgot-password">Forgot Password?</Link>
+            </div>
+          
           <p className="register-text">
             Don't have an account?
             <Link to="/register">Register</Link>
