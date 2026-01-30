@@ -19,16 +19,16 @@
 }
 
 /* ===============================
-   GLOBAL RESET
+   GLOBAL RESET FOR LOGIN PAGE ONLY
    =============================== */
-* {
+.login-wrapper * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: "Segoe UI", system-ui, sans-serif;
 }
 
-body {
+body:has(.login-wrapper) {
   background: var(--chinese-black);
   overflow-x: hidden;
 }
@@ -47,17 +47,6 @@ body {
 /* ===============================
    LEFT INFO SECTION WITH SERVICE ANIMATIONS
    =============================== */
-/* 
-  🎨 BACKGROUND IMAGE CUSTOMIZATION:
-  Replace the Unsplash URL below with your own image:
-  - Use your own hosted image URL
-  - Or use a local image: url('/images/login-bg.jpg')
-  - Recommended size: 1920x1080 or higher
-  - Service marketplace themed images work best (teamwork, collaboration, professionals, etc.)
-  
-  The gradient overlay (rgba values) creates a dark layer over the image.
-  Adjust opacity (0.95) to make image more/less visible (0.8 = lighter, 0.98 = darker)
-*/
 .login-image {
   flex: 1.3;
   background: linear-gradient(135deg, rgba(16, 43, 83, 0.95), rgba(49, 75, 110, 0.95)),
@@ -78,11 +67,11 @@ body {
     linear-gradient(rgba(78, 122, 177, 0.1) 1px, transparent 1px),
     linear-gradient(90deg, rgba(78, 122, 177, 0.1) 1px, transparent 1px);
   background-size: 50px 50px;
-  animation: gridMove 20s linear infinite;
+  animation: login-gridMove 20s linear infinite;
   opacity: 0.4;
 }
 
-@keyframes gridMove {
+@keyframes login-gridMove {
   0% { transform: translate(0, 0); }
   100% { transform: translate(50px, 50px); }
 }
@@ -97,23 +86,23 @@ body {
     radial-gradient(circle at 20% 30%, rgba(78, 122, 177, 0.15) 0%, transparent 50%),
     radial-gradient(circle at 80% 70%, rgba(206, 181, 212, 0.1) 0%, transparent 50%),
     radial-gradient(circle at 50% 50%, rgba(131, 135, 195, 0.12) 0%, transparent 50%);
-  animation: pulse 8s ease-in-out infinite;
+  animation: login-pulse 8s ease-in-out infinite;
 }
 
-@keyframes pulse {
+@keyframes login-pulse {
   0%, 100% { opacity: 0.5; transform: scale(1); }
   50% { opacity: 0.8; transform: scale(1.1); }
 }
 
-/* Animated Service Cards */
-.service-cards {
+/* Animated Service Cards - LOGIN PAGE SPECIFIC */
+.login-wrapper .service-cards {
   position: absolute;
   width: 100%;
   height: 100%;
   pointer-events: none;
 }
 
-.service-card {
+.login-wrapper .service-card {
   position: absolute;
   width: 60px;
   height: 60px;
@@ -125,40 +114,40 @@ body {
   align-items: center;
   justify-content: center;
   font-size: 28px;
-  animation: floatCard 15s ease-in-out infinite;
+  animation: login-floatCard 15s ease-in-out infinite;
 }
 
-.service-card:nth-child(1) {
+.login-wrapper .service-card:nth-child(1) {
   top: 15%;
   left: 10%;
   animation-delay: 0s;
 }
 
-.service-card:nth-child(2) {
+.login-wrapper .service-card:nth-child(2) {
   top: 60%;
   left: 15%;
   animation-delay: 2s;
 }
 
-.service-card:nth-child(3) {
+.login-wrapper .service-card:nth-child(3) {
   top: 35%;
   right: 20%;
   animation-delay: 4s;
 }
 
-.service-card:nth-child(4) {
+.login-wrapper .service-card:nth-child(4) {
   bottom: 20%;
   right: 15%;
   animation-delay: 6s;
 }
 
-.service-card:nth-child(5) {
+.login-wrapper .service-card:nth-child(5) {
   top: 70%;
   left: 50%;
   animation-delay: 8s;
 }
 
-@keyframes floatCard {
+@keyframes login-floatCard {
   0%, 100% {
     transform: translateY(0) rotate(0deg);
     opacity: 0.6;
@@ -178,58 +167,58 @@ body {
 }
 
 /* Main Content Overlay */
-.overlay {
+.login-wrapper .overlay {
   max-width: 520px;
   padding: 40px;
   color: white;
   z-index: 2;
-  animation: slideInLeft 1s ease forwards;
+  animation: login-slideInLeft 1s ease forwards;
   position: relative;
 }
 
-@keyframes slideInLeft {
+@keyframes login-slideInLeft {
   from { opacity: 0; transform: translateX(-60px); }
   to { opacity: 1; transform: translateX(0); }
 }
 
-.overlay h1 {
+.login-wrapper .overlay h1 {
   font-size: 52px;
   margin-bottom: 24px;
   color: var(--silver-pink);
   font-weight: 700;
   line-height: 1.2;
-  animation: fadeInText 1.2s ease forwards;
+  animation: login-fadeInText 1.2s ease forwards;
 }
 
-@keyframes fadeInText {
+@keyframes login-fadeInText {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
-.overlay p {
+.login-wrapper .overlay p {
   font-size: 18px;
   line-height: 1.8;
   color: var(--cadet-grey);
-  animation: fadeInText 1.4s ease forwards;
+  animation: login-fadeInText 1.4s ease forwards;
   animation-delay: 0.2s;
   opacity: 0;
 }
 
 /* Service Stats Animation */
-.service-stats {
+.login-wrapper .service-stats {
   display: flex;
   gap: 30px;
   margin-top: 35px;
-  animation: fadeInText 1.6s ease forwards;
+  animation: login-fadeInText 1.6s ease forwards;
   animation-delay: 0.4s;
   opacity: 0;
 }
 
-.stat-item {
+.login-wrapper .stat-item {
   text-align: left;
 }
 
-.stat-number {
+.login-wrapper .stat-number {
   font-size: 32px;
   font-weight: 700;
   color: var(--pink-lavender);
@@ -237,7 +226,7 @@ body {
   margin-bottom: 5px;
 }
 
-.stat-label {
+.login-wrapper .stat-label {
   font-size: 13px;
   color: var(--cadet-grey);
   text-transform: uppercase;
@@ -267,7 +256,7 @@ body {
   border-radius: 50%;
   top: -100px;
   right: -100px;
-  animation: rotateShape 20s linear infinite;
+  animation: login-rotateShape 20s linear infinite;
 }
 
 .login-form-section::after {
@@ -279,10 +268,10 @@ body {
   border-radius: 50%;
   bottom: -50px;
   left: -50px;
-  animation: rotateShape 15s linear infinite reverse;
+  animation: login-rotateShape 15s linear infinite reverse;
 }
 
-@keyframes rotateShape {
+@keyframes login-rotateShape {
   0% { transform: rotate(0deg) scale(1); }
   50% { transform: rotate(180deg) scale(1.1); }
   100% { transform: rotate(360deg) scale(1); }
@@ -297,13 +286,13 @@ body {
   box-shadow: 
     0 20px 60px rgba(0, 0, 0, 0.5),
     0 0 0 1px rgba(255, 255, 255, 0.1);
-  animation: fadeUp 1s ease forwards;
+  animation: login-fadeUp 1s ease forwards;
   position: relative;
   z-index: 1;
   border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-@keyframes fadeUp {
+@keyframes login-fadeUp {
   from { opacity: 0; transform: translateY(40px); }
   to { opacity: 1; transform: translateY(0); }
 }
@@ -320,10 +309,10 @@ body {
   -webkit-mask-composite: xor;
   mask-composite: exclude;
   opacity: 0.5;
-  animation: borderGlow 3s ease-in-out infinite;
+  animation: login-borderGlow 3s ease-in-out infinite;
 }
 
-@keyframes borderGlow {
+@keyframes login-borderGlow {
   0%, 100% { opacity: 0.3; }
   50% { opacity: 0.6; }
 }
@@ -350,7 +339,7 @@ body {
 /* ===============================
    INPUTS WITH ADVANCED STYLING
    =============================== */
-.input-group {
+.login-wrapper .input-group {
   width: 100%;
   margin-bottom: 20px;
   position: relative;
@@ -388,22 +377,22 @@ body {
 }
 
 /* Error message styling */
-.error-text {
+.login-wrapper .error-text {
   margin-top: 8px;
   font-size: 13px;
   color: var(--pink-lavender);
-  animation: errorSlide 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: login-errorSlide 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   display: flex;
   align-items: center;
   gap: 6px;
 }
 
-.error-text::before {
+.login-wrapper .error-text::before {
   content: "⚠";
   font-size: 14px;
 }
 
-@keyframes errorSlide {
+@keyframes login-errorSlide {
   from {
     opacity: 0;
     transform: translateX(-10px);
@@ -415,11 +404,11 @@ body {
 }
 
 /* Password Toggle */
-.password-wrapper {
+.login-wrapper .password-wrapper {
   position: relative;
 }
 
-.password-toggle {
+.login-wrapper .password-toggle {
   position: absolute;
   right: 16px;
   top: 50%;
@@ -434,7 +423,7 @@ body {
   user-select: none;
 }
 
-.password-toggle:hover {
+.login-wrapper .password-toggle:hover {
   background: rgba(78, 122, 177, 0.2);
   color: var(--silver-pink);
 }
@@ -490,12 +479,12 @@ body {
 /* ===============================
    LINKS WITH ANIMATIONS
    =============================== */
-.extra-links {
+.login-wrapper .extra-links {
   margin-top: 20px;
   text-align: right;
 }
 
-.extra-links a {
+.login-wrapper .extra-links a {
   color: var(--air-superiority-blue);
   text-decoration: none;
   font-size: 14px;
@@ -503,7 +492,7 @@ body {
   transition: color 0.3s ease;
 }
 
-.extra-links a::after {
+.login-wrapper .extra-links a::after {
   content: "";
   position: absolute;
   bottom: -2px;
@@ -514,15 +503,15 @@ body {
   transition: width 0.3s ease;
 }
 
-.extra-links a:hover {
+.login-wrapper .extra-links a:hover {
   color: var(--silver-pink);
 }
 
-.extra-links a:hover::after {
+.login-wrapper .extra-links a:hover::after {
   width: 100%;
 }
 
-.register-text {
+.login-wrapper .register-text {
   margin-top: 28px;
   text-align: center;
   color: var(--cadet-grey);
@@ -531,7 +520,7 @@ body {
   border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.register-text a {
+.login-wrapper .register-text a {
   color: var(--silver-pink);
   margin-left: 6px;
   text-decoration: none;
@@ -540,30 +529,30 @@ body {
   position: relative;
 }
 
-.register-text a::after {
+.login-wrapper .register-text a::after {
   content: "→";
   margin-left: 4px;
   display: inline-block;
   transition: transform 0.3s ease;
 }
 
-.register-text a:hover::after {
+.login-wrapper .register-text a:hover::after {
   transform: translateX(4px);
 }
 
 /* ===============================
    LOADING ANIMATION (BONUS)
    =============================== */
-@keyframes spin {
+@keyframes login-spin {
   to { transform: rotate(360deg); }
 }
 
-.loading {
+.login-wrapper .loading {
   pointer-events: none;
   opacity: 0.7;
 }
 
-.loading::after {
+.login-wrapper .loading::after {
   content: "";
   position: absolute;
   width: 20px;
@@ -571,7 +560,7 @@ body {
   border: 3px solid rgba(255, 255, 255, 0.3);
   border-top-color: white;
   border-radius: 50%;
-  animation: spin 0.8s linear infinite;
+  animation: login-spin 0.8s linear infinite;
   right: 20px;
   top: 50%;
   transform: translateY(-50%);
@@ -589,15 +578,15 @@ body {
     min-height: 40vh;
   }
 
-  .overlay h1 {
+  .login-wrapper .overlay h1 {
     font-size: 38px;
   }
 
-  .service-stats {
+  .login-wrapper .service-stats {
     gap: 20px;
   }
 
-  .stat-number {
+  .login-wrapper .stat-number {
     font-size: 26px;
   }
 
@@ -612,11 +601,11 @@ body {
     padding: 40px 30px;
   }
 
-  .overlay {
+  .login-wrapper .overlay {
     padding: 30px;
   }
 
-  .service-card {
+  .login-wrapper .service-card {
     width: 45px;
     height: 45px;
     font-size: 20px;
