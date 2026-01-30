@@ -5,6 +5,7 @@ import LoginPage from "./authentication/LoginPage";
 import RegisterPage from "./authentication/RegisterPage";
 import BrowseServices from "./components/BrowseServices";
 import PageNotFound from "./authentication/PageNotFound";
+import Contact from "./components/Contact";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
 
         {/* 404 Route */}
         <Route path="*" element={<PageNotFound />} />
+        <Route path="/contact" element={<Contact />} />
       </Routes>
     </BrowserRouter>
   );
