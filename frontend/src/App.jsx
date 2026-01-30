@@ -7,6 +7,7 @@ import BrowseServices from "./components/BrowseServices";
 import PageNotFound from "./authentication/PageNotFound";
 import Contact from "./components/Contact";
 import ForgotPassword from "./authentication/ForgotPasswordPage";
+import Termsandconditions from "./authentication/Termsandconditions";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path="*" element={<PageNotFound />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
+        <Route path="/terms-and-conditions" element={<Termsandconditions />} /> 
       </Routes>
     </BrowserRouter>
   );
