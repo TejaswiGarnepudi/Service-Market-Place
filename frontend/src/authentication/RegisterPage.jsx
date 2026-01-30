@@ -158,7 +158,7 @@ export default function RegisterPage() {
 
     <span className="terms-text">
       I agree to the{" "}
-      <a href="/terms" target="_blank" rel="noreferrer">
+      <a href="/terms-and-conditions" target="_blank" rel="noreferrer">
         Terms & Conditions
       </a>
     </span>
