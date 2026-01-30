@@ -4,6 +4,7 @@ import Homepage from "./components/Homepage";
 import LoginPage from "./authentication/LoginPage";
 import RegisterPage from "./authentication/RegisterPage";
 import BrowseServices from "./components/BrowseServices";
+import PageNotFound from "./authentication/PageNotFound";
 
 function App() {
   return (
@@ -14,11 +15,12 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/browse-services" element={<BrowseServices />} />
+
+        {/* 404 Route */}
+        <Route path="*" element={<PageNotFound />} />
       </Routes>
     </BrowserRouter>
   );
 }
 
 export default App;
-
-                
