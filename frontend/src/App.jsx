@@ -5,6 +5,7 @@ import LoginPage from "./authentication/LoginPage";
 import RegisterPage from "./authentication/RegisterPage";
 import BrowseServices from "./components/BrowseServices";
 import Contact from "./components/Contact";
+import ForgotPassword from "./authentication/ForgotPasswordPage";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/browse-services" element={<BrowseServices />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
       </Routes>
     </BrowserRouter>
   );
