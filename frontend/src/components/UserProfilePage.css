@@ -1,0 +1,65 @@
+.profile-container {
+  display: flex;
+  padding: 40px 80px;
+  gap: 40px;
+}
+
+.profile-sidebar {
+  width: 250px;
+  background: #f5f7fb;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.profile-sidebar img {
+  width: 100px;
+  border-radius: 50%;
+}
+
+.edit-btn {
+  background: #2f6fed;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  margin-top: 10px;
+  border-radius: 5px;
+}
+
+.profile-content {
+  flex: 1;
+}
+
+.tabs {
+  display: flex;
+  gap: 30px;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+.tabs span:hover {
+  color: #2f6fed;
+}
+
+.form-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.form-section input,
+.form-section textarea {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+}
+
+.save-btn {
+  width: 200px;
+  margin-top: 20px;
+  padding: 10px;
+  border: none;
+  background: #2f6fed;
+  color: white;
+  border-radius: 6px;
+}
