@@ -406,7 +406,15 @@ body:has(.login-wrapper) {
 /* Password Toggle */
 .login-wrapper .password-wrapper {
   position: relative;
+  width:100%;
 }
+.login-wrapper .password-wrapper input {
+  width: 100%;
+  padding-right: 60px;   /* space for Show */
+}
+
+
+
 
 .login-wrapper .password-toggle {
   position: absolute;

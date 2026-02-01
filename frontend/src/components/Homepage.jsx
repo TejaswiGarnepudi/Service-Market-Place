@@ -1,5 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { FaFacebookF, FaInstagram, FaTwitter } from "react-icons/fa";
 import "./Homepage.css";
 
 export default function Homepage() {
@@ -380,17 +381,21 @@ export default function Homepage() {
         
         {/* Social Links */}
         <div className="social-links">
-          <span>Connect with us:</span>
-          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="social-icon">
-            Facebook
-          </a>
-          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="social-icon">
-            Instagram
-          </a>
-          <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="social-icon">
-            Twitter
-          </a>
-        </div>
+  <span>Connect with us:</span>
+
+  <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="social-icon">
+    <FaFacebookF/>
+  </a>
+
+  <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="social-icon">
+    <FaInstagram/>
+  </a>
+
+  <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="social-icon">
+    <FaTwitter />
+  </a>
+</div>
+
       </section>
     </div>
   );
