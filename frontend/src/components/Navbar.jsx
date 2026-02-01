@@ -44,6 +44,29 @@ export default function Navbar() {
     return location.pathname === path ? "active" : "";
   };
 
+  // Smooth scroll to About section
+  const scrollToAbout = (e) => {
+    e.preventDefault();
+    
+    // Close mobile menu if open
+    setIsMenuOpen(false);
+    
+    // If not on homepage, navigate to homepage first
+    if (location.pathname !== "/") {
+      window.location.href = "/#about";
+      return;
+    }
+    
+    // Scroll to about section
+    const aboutSection = document.getElementById("about");
+    if (aboutSection) {
+      aboutSection.scrollIntoView({ 
+        behavior: "smooth",
+        block: "start"
+      });
+    }
+  };
+
   return (
     <>
       {/* Skip to main content for accessibility */}
@@ -66,6 +89,11 @@ export default function Navbar() {
             </Link>
           </li>
           <li>
+            <a href="#about" onClick={scrollToAbout} className="nav-about-link">
+              About
+            </a>
+          </li>
+          <li>
             <Link to="/browse-services" className={isActive("/browse-services")}>
               Browse Services
             </Link>
@@ -76,16 +104,6 @@ export default function Navbar() {
             </Link>
           </li>
         </ul>
-
-        {/* Optional: Search Bar */}
-        {/* <div className="search-container">
-          <input
-            type="text"
-            className="search-input"
-            placeholder="Search services..."
-          />
-          <span className="search-icon">🔍</span>
-        </div> */}
 
         {/* Desktop Action Buttons */}
         <div className="nav-actions">
@@ -117,6 +135,11 @@ export default function Navbar() {
             <Link to="/" className={isActive("/")}>
               Home
             </Link>
+          </li>
+          <li>
+            <a href="#about" onClick={scrollToAbout} className="nav-about-link">
+              About
+            </a>
           </li>
           <li>
             <Link to="/browse-services" className={isActive("/browse-services")}>

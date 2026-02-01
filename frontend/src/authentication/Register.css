@@ -88,7 +88,7 @@ body {
   100% { transform: rotate(360deg) scale(1); }
 }
 
-/* .register-box {
+.register-box {
   width: 460px;
   background: rgba(14, 20, 28, 0.92);
   backdrop-filter: blur(20px);
@@ -101,52 +101,11 @@ body {
   position: relative;
   z-index: 1;
   border: 1px solid rgba(255, 255, 255, 0.08);
-  max-height: 95vh;
-  overflow-y: auto;
-} */
-
-/* Custom Scrollbar */
-.register-box::-webkit-scrollbar {
-  width: 8px;
-}
-
-.register-box::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 10px;
-}
-
-.register-box::-webkit-scrollbar-thumb {
-  background: var(--cyan-azure);
-  border-radius: 10px;
-}
-
-.register-box::-webkit-scrollbar-thumb:hover {
-  background: var(--silver-pink);
 }
 
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(40px); }
   to { opacity: 1; transform: translateY(0); }
-}
-
-/* .register-box::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: 24px;
-  padding: 2px;
-  background: linear-gradient(135deg, rgba(189, 179, 163, 0.3), rgba(78, 122, 177, 0.3));
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  opacity: 0.5;
-  animation: borderGlow 3s ease-in-out infinite;
-} */
-
-@keyframes borderGlow {
-  0%, 100% { opacity: 0.3; }
-  50% { opacity: 0.6; }
 }
 
 .register-box h2 {
@@ -482,17 +441,6 @@ body {
 /* ===============================
    RIGHT INFO SECTION WITH SERVICE ANIMATIONS
    =============================== */
-/* 
-  🎨 BACKGROUND IMAGE CUSTOMIZATION:
-  Replace the Unsplash URL below with your own image:
-  - Use your own hosted image URL
-  - Or use a local image: url('/images/register-bg.jpg')
-  - Recommended size: 1920x1080 or higher
-  - Service marketplace themed images work best (teamwork, collaboration, professionals, etc.)
-  
-  The gradient overlay (rgba values) creates a dark layer over the image.
-  Adjust opacity (0.95) to make image more/less visible (0.8 = lighter, 0.98 = darker)
-*/
 .register-info {
   flex: 1.3;
   background: linear-gradient(135deg, rgba(16, 43, 83, 0.95), rgba(49, 75, 110, 0.95)),
@@ -679,13 +627,15 @@ body {
 .feature-icon {
   width: 24px;
   height: 24px;
-  background: linear-gradient(135deg, var(--cyan-azure), var(--air-superiority-blue));
+  background: transparent;
+  border: 2px solid rgba(189, 179, 163, 0.4);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 12px;
+  font-size: 14px;
   flex-shrink: 0;
+  color: var(--silver-pink);
 }
 
 /* ===============================
@@ -734,11 +684,10 @@ body {
     font-size: 14px;
   }
 }
+
 /* ===============================
    INTERACTION FIX (FORM CLICKABLE)
    =============================== */
-
-/* Make form always interactive */
 .register-form-section {
   position: relative;
   z-index: 10;
@@ -749,12 +698,10 @@ body {
   z-index: 20;
 }
 
-/* Ensure all form elements can receive input */
 .register-box * {
   pointer-events: auto;
 }
 
-/* Disable interactions on animated/right visuals */
 .register-info,
 .register-info::before,
 .register-info::after,
@@ -764,11 +711,11 @@ body {
   pointer-events: none;
 }
 
-/* Prevent background shapes from blocking form */
 .register-form-section::before,
 .register-form-section::after {
   pointer-events: none;
 }
+
 .custom-checkbox {
   cursor: pointer;
 }
@@ -776,344 +723,3 @@ body {
 .terms-text {
   cursor: pointer;
 }
-/* Prevent background shapes from blocking form */
-.register-form-section::before,
-.register-form-section::after {
-  pointer-events: none;
-}
-
-/* Ensure form is interactive */
-.register-box {
-  pointer-events: auto; /* <- make sure this exists */
-}
-
-.register-box * {
-  pointer-events: auto; /* <- ensures all children can be typed in */
-}
-/* ===============================
-   COLOR PALETTE
-   =============================== */
-:root {
-  --space-cadet: #102B53;
-  --ucla-blue: #50698D;
-  --pink-lavender: #CEB5D4;
-  --cyan-azure: #4E7AB1;
-  --air-superiority-blue: #7D9FC0;
-  --chinese-black: #0E141C;
-  --police-blue: #314B6E;
-  --rackley: #607EA2;
-  --weldon-blue: #8197AC;
-  --silver-pink: #BDB3A3;
-  --cadet-grey: #959BB5;
-  --american-blue: #3A3E6C;
-  --ube: #8387C3;
-  --cool-grey: #8A8CAC;
-}
-
-/* ===============================
-   GLOBAL RESET
-   =============================== */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Segoe UI", system-ui, sans-serif;
-}
-
-body {
-  background: var(--chinese-black);
-  overflow-x: hidden;
-  cursor: default;
-}
-
-/* ===============================
-   MAIN WRAPPER
-   =============================== */
-.register-wrapper {
-  min-height: 100vh;
-  width: 100%;
-  display: flex;
-  overflow: hidden;
-  position: relative;
-}
-
-/* ===============================
-   LEFT REGISTER FORM
-   =============================== */
-.register-form-section {
-  flex: 1;
-  background: linear-gradient(160deg, var(--cool-grey), var(--ube));
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  overflow: visible; /* changed from hidden */
-  z-index: 1;
-}
-
-/* Animated Shapes Background */
-.register-form-section::before,
-.register-form-section::after {
-  content: "";
-  position: absolute;
-  border-radius: 50%;
-  pointer-events: none; /* only pseudo-elements are non-interactive */
-}
-
-.register-form-section::before {
-  width: 400px;
-  height: 400px;
-  background: radial-gradient(circle, rgba(131, 135, 195, 0.2), transparent);
-  top: -100px;
-  left: -100px;
-  animation: rotateShape 20s linear infinite;
-}
-
-.register-form-section::after {
-  width: 300px;
-  height: 300px;
-  background: radial-gradient(circle, rgba(78, 122, 177, 0.15), transparent);
-  bottom: -50px;
-  right: -50px;
-  animation: rotateShape 15s linear infinite reverse;
-}
-
-@keyframes rotateShape {
-  0% { transform: rotate(0deg) scale(1); }
-  50% { transform: rotate(180deg) scale(1.1); }
-  100% { transform: rotate(360deg) scale(1); }
-}
-
-/* ===============================
-   REGISTER BOX
-   =============================== */
-.register-box {
-  width: 460px;
-  background: rgba(14, 20, 28, 0.92);
-  backdrop-filter: blur(20px);
-  padding: 50px 45px;
-  border-radius: 24px;
-  box-shadow: 
-    0 20px 60px rgba(0, 0, 0, 0.5),
-    0 0 0 1px rgba(255, 255, 255, 0.1);
-  animation: fadeUp 1s ease forwards;
-  position: relative;
-  z-index: 10; /* make sure above pseudo-elements */
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  max-height: 95vh;
-  overflow-y: auto;
-  pointer-events: auto;
-}
-
-/* Custom Scrollbar */
-.register-box::-webkit-scrollbar {
-  width: 8px;
-}
-
-.register-box::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 10px;
-}
-
-.register-box::-webkit-scrollbar-thumb {
-  background: var(--cyan-azure);
-  border-radius: 10px;
-}
-
-.register-box::-webkit-scrollbar-thumb:hover {
-  background: var(--silver-pink);
-}
-
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(40px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.register-box h2 {
-  text-align: center;
-  color: var(--silver-pink);
-  font-size: 38px;
-  margin-bottom: 10px;
-  font-weight: 700;
-  background: linear-gradient(135deg, var(--silver-pink), var(--pink-lavender));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.register-box > p {
-  text-align: center;
-  color: var(--cadet-grey);
-  margin-bottom: 28px;
-  font-size: 15px;
-}
-
-/* ===============================
-   INPUTS
-   =============================== */
-.register-box input[type="text"],
-.register-box input[type="password"] {
-  width: 100%;
-  padding: 16px 18px;
-  margin-bottom: 16px;
-  border-radius: 12px;
-  border: 2px solid rgba(96, 126, 162, 0.3);
-  background: rgba(255, 255, 255, 0.04);
-  color: white;
-  font-size: 15px;
-  outline: none;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  cursor: text; /* ensure cursor is text */
-}
-
-.register-box input::placeholder {
-  color: var(--cadet-grey);
-  opacity: 0.7;
-}
-
-.register-box input:focus {
-  border-color: var(--silver-pink);
-  background: rgba(255, 255, 255, 0.08);
-  box-shadow: 
-    0 0 0 4px rgba(189, 179, 163, 0.15),
-    0 8px 20px rgba(0, 0, 0, 0.2);
-  transform: translateY(-2px);
-}
-
-.register-box input:hover {
-  border-color: rgba(96, 126, 162, 0.5);
-}
-
-/* ===============================
-   BUTTON
-   =============================== */
-.register-box button {
-  width: 100%;
-  padding: 16px;
-  border: none;
-  border-radius: 12px;
-  background: linear-gradient(135deg, var(--space-cadet), var(--cyan-azure));
-  color: white;
-  font-size: 14px;
-  font-weight: 700;
-  cursor: pointer;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  margin-top: 8px;
-  position: relative;
-  overflow: hidden;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-}
-
-.register-box button::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-  transition: left 0.6s ease;
-}
-
-.register-box button:hover::before {
-  left: 100%;
-}
-
-.register-box button:hover {
-  transform: translateY(-3px) scale(1.02);
-  box-shadow: 
-    0 12px 30px rgba(78, 122, 177, 0.4),
-    0 0 0 3px rgba(78, 122, 177, 0.2);
-}
-
-.register-box button:active {
-  transform: translateY(-1px) scale(0.98);
-}
-
-/* ===============================
-   TERMS
-   =============================== */
-.terms-row {
-  margin: 20px 0;
-}
-
-.custom-checkbox {
-  display: flex;
-  align-items: flex-start;
-  gap: 12px;
-  position: relative;
-}
-
-.custom-checkbox input {
-  display: none;
-}
-
-.checkmark {
-  width: 22px;
-  height: 22px;
-  min-width: 22px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 2px solid rgba(255, 255, 255, 0.3);
-  border-radius: 6px;
-  position: relative;
-  transition: all 0.3s;
-  margin-top: 2px;
-}
-
-.custom-checkbox:hover .checkmark {
-  border-color: var(--cyan-azure);
-  box-shadow: 0 0 0 4px rgba(78, 122, 177, 0.15);
-  transform: scale(1.1);
-}
-
-.custom-checkbox input:checked + .checkmark {
-  background: linear-gradient(135deg, var(--cyan-azure), var(--air-superiority-blue));
-  border-color: var(--cyan-azure);
-}
-
-.custom-checkbox input:checked + .checkmark::after {
-  content: "";
-  position: absolute;
-  left: 6px;
-  top: 2px;
-  width: 6px;
-  height: 11px;
-  border: solid white;
-  border-width: 0 2.5px 2.5px 0;
-  transform: rotate(45deg);
-}
-
-/* ===============================
-   ERROR TEXT
-   =============================== */
-.error-text {
-  font-size: 13px;
-  margin: -10px 0 16px 4px;
-  color: var(--pink-lavender);
-}
-
-/* ===============================
-   RIGHT INFO SECTION
-   =============================== */
-.register-info {
-  flex: 1.3;
-  background: linear-gradient(135deg, rgba(16, 43, 83, 0.95), rgba(49, 75, 110, 0.95)),
-    url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&q=80') center/cover;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  pointer-events: none;
-}
-
-.register-info::before,
-.register-info::after,
-.service-categories,
-.service-categories *,
-.info-overlay {
-  pointer-events: none;
-}
-
-/* ... keep all your animations for badges & overlay intact ... */
