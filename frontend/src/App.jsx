@@ -1,29 +1,41 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Homepage from "./components/Homepage";
+import About from "./components/About";
+import Contact from "./components/Contact";
+import BrowseServices from "./components/BrowseServices";
+
 import LoginPage from "./authentication/LoginPage";
 import RegisterPage from "./authentication/RegisterPage";
-import BrowseServices from "./components/BrowseServices";
-import PageNotFound from "./authentication/PageNotFound";
-import Contact from "./components/Contact";
 import ForgotPassword from "./authentication/ForgotPasswordPage";
 import Termsandconditions from "./authentication/Termsandconditions";
+import PageNotFound from "./authentication/PageNotFound";
 
 function App() {
   return (
     <BrowserRouter>
       <Navbar />
+
       <Routes>
+        {/* Public Pages */}
         <Route path="/" element={<Homepage />} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/register" element={<RegisterPage />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
         <Route path="/browse-services" element={<BrowseServices />} />
 
-        {/* 404 Route */}
-        <Route path="*" element={<PageNotFound />} />
-        <Route path="/contact" element={<Contact />} />
+        {/* Auth Pages */}
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/register" element={<RegisterPage />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
-        <Route path="/terms-and-conditions" element={<Termsandconditions />} /> 
+
+        {/* Legal */}
+        <Route
+          path="/terms-and-conditions"
+          element={<Termsandconditions />}
+        />
+
+        {/* 404 - Always Last */}
+        <Route path="*" element={<PageNotFound />} />
       </Routes>
     </BrowserRouter>
   );
