@@ -1,0 +1,43 @@
+.profile-navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background-color: #fff;
+  border-bottom: 1px solid #ddd;
+}
+
+.profile-logo a {
+  font-weight: bold;
+  font-size: 20px;
+  color: #007bff;
+  text-decoration: none;
+}
+
+.profile-nav-links {
+  display: flex;
+  gap: 20px; /* <-- This adds space between the links */
+}
+
+.profile-nav-links .nav-link {
+  text-decoration: none;
+  color: #007bff;
+  font-weight: 500;
+}
+
+.profile-nav-links .nav-link:hover {
+  text-decoration: underline;
+}
+
+.profile-mode-switch button {
+  padding: 8px 15px;
+  background-color: #f0f0f0;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  font-weight: 500;
+}
+
+.profile-mode-switch button:hover {
+  background-color: #ddd;
+}
