@@ -1,8 +1,9 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./LoginPage.css";
 
 export default function LoginPage() {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [emailError, setEmailError] = useState("");
   const [password, setPassword] = useState("");
@@ -25,8 +26,13 @@ export default function LoginPage() {
       return;
     }
 
-    // Success
-    alert("Logged in successfully!");
+    // Success - Store login state and redirect to dashboard
+    localStorage.setItem("isLoggedIn", "true");
+    localStorage.setItem("userEmail", email);
+    localStorage.setItem("mode", "buyer"); // Default to buyer mode
+    
+    // Redirect to client dashboard
+    navigate("/dashboard");
   };
 
   return (
@@ -39,7 +45,7 @@ export default function LoginPage() {
           <div className="service-card">🎨</div>
           <div className="service-card">💻</div>
           <div className="service-card">📱</div>
-          <div className="service-card">✍️</div>
+          <div className="service-card">✏️</div>
         </div>
 
         <div className="overlay">
@@ -110,9 +116,9 @@ export default function LoginPage() {
             <button type="submit">Login</button>
           </form>
 
-            <div className="extra-links">
-              <Link to="/forgot-password">Forgot Password?</Link>
-            </div>
+          <div className="extra-links">
+            <Link to="/forgot-password">Forgot Password?</Link>
+          </div>
           
           <p className="register-text">
             Don't have an account?

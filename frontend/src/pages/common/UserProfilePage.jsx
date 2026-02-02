@@ -1,5 +1,5 @@
 import { useState } from "react";
-import ProfileNavbar from "./ProfileNavbar";
+import ProfileNavbar from "../../components/profilenavbar/ProfileNavbar";
 import "./UserProfilePage.css";
 
 export default function UserProfilePage() {

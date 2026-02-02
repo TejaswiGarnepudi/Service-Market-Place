@@ -1,19 +1,20 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Navbar from "./components/Navbar";
-import Homepage from "./components/Homepage";
-import About from "./components/About";
-import Contact from "./components/Contact";
-import BrowseServices from "./components/BrowseServices";
+import Navbar from "./components/navbar/Navbar";
+import Homepage from "./pages/landingpage/Homepage";
+import About from "./pages/landingpage/About";
+import Contact from "./pages/landingpage/Contact";
+import BrowseServices from "./pages/landingpage/BrowseServices";
 
-import ClientDashboard from "./components/ClientDashboard";
-import UserProfilePage from "./components/UserProfilePage";
+import ClientDashboard from "./pages/clientfiles/ClientDashboard";
+import UserProfilePage from "./pages/common/UserProfilePage";
 
 import LoginPage from "./authentication/LoginPage";
 import RegisterPage from "./authentication/RegisterPage";
 import ForgotPassword from "./authentication/ForgotPasswordPage";
 import Termsandconditions from "./authentication/Termsandconditions";
 import PageNotFound from "./authentication/PageNotFound";
-import SellerProfile from "./components/SellerPage";
+import SellerDashboard from "./pages/freelancerfiles/SellerDashboard";
+import CreateSellerProfile from "./pages/freelancerfiles/CreateSellerProfile";
 
 function App() {
   return (
@@ -27,7 +28,8 @@ function App() {
         <Route path="/browse-services" element={<><Navbar /><BrowseServices /></>} />
         <Route path="/dashboard" element={<><Navbar /><ClientDashboard /></>} />
 
-        <Route path="/seller-profile" element={<SellerProfile />} />
+        <Route path="/seller-profile" element={<SellerDashboard />} />
+        <Route path="/create-seller-profile" element={<CreateSellerProfile />} />
         <Route path="/profile" element={<UserProfilePage />} />
 
 
