@@ -9,16 +9,12 @@ export default function Homepage() {
   const [searchQuery, setSearchQuery] = useState("");
   
   const handleSearch = () => {
-    // Allow search without login
     if (searchQuery.trim() || selectedLocation) {
-      // Navigate to browse-services with search parameters
       const params = new URLSearchParams();
       if (searchQuery.trim()) params.append('query', searchQuery.trim());
       if (selectedLocation) params.append('location', selectedLocation);
-      
       navigate(`/browse-services?${params.toString()}`);
     } else {
-      // If no search criteria, just go to browse-services
       navigate('/browse-services');
     }
   };
@@ -381,21 +377,20 @@ export default function Homepage() {
         
         {/* Social Links */}
         <div className="social-links">
-  <span>Connect with us:</span>
+          <span>Connect with us:</span>
 
-  <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="social-icon">
-    <FaFacebookF/>
-  </a>
+          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="social-icon">
+            <FaFacebookF/>
+          </a>
 
-  <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="social-icon">
-    <FaInstagram/>
-  </a>
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="social-icon">
+            <FaInstagram/>
+          </a>
 
-  <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="social-icon">
-    <FaTwitter />
-  </a>
-</div>
-
+          <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="social-icon">
+            <FaTwitter />
+          </a>
+        </div>
       </section>
     </div>
   );
