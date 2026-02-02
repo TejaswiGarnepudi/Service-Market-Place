@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import "./ProfileNavbar.css";
 
 export default function UserNavbar() {
@@ -8,11 +8,16 @@ export default function UserNavbar() {
   const [mode, setMode] = useState(() => localStorage.getItem("mode") || "buyer");
   const [hasSellerProfile] = useState(() => localStorage.getItem("hasSellerProfile") === "true");
   const [showProfileDropdown, setShowProfileDropdown] = useState(false);
+  const [searchTerm, setSearchTerm] = useState("");
+
   const dropdownRef = useRef(null);
 
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target)
+      ) {
         setShowProfileDropdown(false);
       }
     };
@@ -24,6 +29,7 @@ export default function UserNavbar() {
     localStorage.setItem("mode", mode);
   }, [mode]);
 
+  // ✅ Simple Mode Toggle
   const handleModeToggle = () => {
     if (mode === "buyer") {
       if (hasSellerProfile) {
@@ -49,7 +55,7 @@ export default function UserNavbar() {
 
         {/* LOGO */}
         <div className="navbar-logo">
-          <Link to="/dashboard">
+          <Link to={mode === "seller" ? "/create-seller-profile" : "/dashboard"}>
             <span className="logo-icon">💎</span>
             <span className="logo-text">SkillConnect</span>
           </Link>
@@ -85,7 +91,9 @@ export default function UserNavbar() {
 
           {/* MODE TOGGLE */}
           <button className="mode-toggle-btn" onClick={handleModeToggle}>
-            <span className="toggle-icon">{mode === "buyer" ? "💼" : "🛒"}</span>
+            <span className="toggle-icon">
+              {mode === "buyer" ? "💼" : "💼"}
+            </span>
             <span className="toggle-text">
               Switch to {mode === "buyer" ? "Seller" : "Buyer"}
             </span>
@@ -120,7 +128,9 @@ export default function UserNavbar() {
               </div>
             )}
           </div>
+
         </div>
+
       </div>
     </nav>
   );

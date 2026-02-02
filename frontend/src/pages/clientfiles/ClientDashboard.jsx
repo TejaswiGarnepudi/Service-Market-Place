@@ -100,7 +100,7 @@ export default function ClientDashboard() {
           <div className="welcome-content">
             <div className="welcome-icon">👋</div>
             <div className="welcome-text">
-              <h1>Welcome back, {userName}</h1>
+              <h1>Welcome back</h1>
               <p>What service are you looking for today?</p>
               <div className="location-info">
                 <span className="location-icon">📍</span>
@@ -108,6 +108,10 @@ export default function ClientDashboard() {
                   Showing services near {userLocation}
                 </span>
               </div>
+              {/* <div className="location-info">
+                {/* <span className="location-icon">📍</span> */}
+                {/* <span className="location-text">Showing services near {userLocation}</span> */}
+              {/* </div>  */}
             </div>
           </div>
         </div>
