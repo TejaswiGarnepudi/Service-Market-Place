@@ -56,33 +56,31 @@ export default function CreateSellerProfile() {
   const handleSubmit = (e) => {
     e.preventDefault();
     
-    // Basic validation
     if (!formData.businessName || !formData.category || !formData.description) {
       alert("Please fill in all required fields");
       return;
     }
 
-    // Save seller profile status
     localStorage.setItem("hasSellerProfile", "true");
     localStorage.setItem("sellerProfileData", JSON.stringify({
       ...formData,
       skills: selectedSkills
     }));
 
-    // Navigate to seller dashboard
     navigate("/seller-dashboard");
   };
 
   return (
     <div className="create-seller-wrapper">
       <UserNavbar />
-      
+
+      {/* Two-column layout */}
       <div className="create-seller-container">
-        <div className="seller-hero">
-          <div className="hero-content">
+        {/* Left Column: Hero */}
+        <div className="left-column">
+          <div className="seller-hero">
             <h1>🚀 Become a Seller on SkillConnect</h1>
             <p>Join thousands of professionals earning by offering their services</p>
-            
             <div className="hero-stats">
               <div className="stat-box">
                 <span className="stat-value">50K+</span>
@@ -100,7 +98,8 @@ export default function CreateSellerProfile() {
           </div>
         </div>
 
-        <div className="form-section">
+        {/* Right Column: Form */}
+        <div className="right-column">
           <div className="form-header">
             <h2>Create Your Seller Profile</h2>
             <p>Tell us about your services and expertise</p>
@@ -109,32 +108,14 @@ export default function CreateSellerProfile() {
           <form onSubmit={handleSubmit} className="seller-form">
             {/* Business Name */}
             <div className="form-group">
-              <label htmlFor="businessName">
-                Business/Professional Name <span className="required">*</span>
-              </label>
-              <input
-                type="text"
-                id="businessName"
-                name="businessName"
-                value={formData.businessName}
-                onChange={handleInputChange}
-                placeholder="e.g., Creative Design Studio"
-                required
-              />
+              <label htmlFor="businessName">Business/Professional Name <span className="required">*</span></label>
+              <input type="text" id="businessName" name="businessName" value={formData.businessName} onChange={handleInputChange} placeholder="e.g., Creative Design Studio" required />
             </div>
 
             {/* Category */}
             <div className="form-group">
-              <label htmlFor="category">
-                Service Category <span className="required">*</span>
-              </label>
-              <select
-                id="category"
-                name="category"
-                value={formData.category}
-                onChange={handleInputChange}
-                required
-              >
+              <label htmlFor="category">Service Category <span className="required">*</span></label>
+              <select id="category" name="category" value={formData.category} onChange={handleInputChange} required>
                 <option value="">Select a category</option>
                 {categories.map((cat, index) => (
                   <option key={index} value={cat}>{cat}</option>
@@ -144,62 +125,22 @@ export default function CreateSellerProfile() {
 
             {/* Description */}
             <div className="form-group">
-              <label htmlFor="description">
-                Profile Description <span className="required">*</span>
-              </label>
-              <textarea
-                id="description"
-                name="description"
-                value={formData.description}
-                onChange={handleInputChange}
-                placeholder="Describe your services, expertise, and what makes you unique..."
-                rows="5"
-                required
-              />
+              <label htmlFor="description">Profile Description <span className="required">*</span></label>
+              <textarea id="description" name="description" value={formData.description} onChange={handleInputChange} placeholder="Describe your services, expertise, and what makes you unique..." rows="5" required />
               <span className="helper-text">Min 150 characters</span>
             </div>
 
             {/* Skills */}
             <div className="form-group">
-              <label htmlFor="skills">
-                Skills & Expertise
-              </label>
+              <label htmlFor="skills">Skills & Expertise</label>
               <div className="skills-input-wrapper">
-                <input
-                  type="text"
-                  id="skills"
-                  value={currentSkill}
-                  onChange={(e) => setCurrentSkill(e.target.value)}
-                  placeholder="Type a skill and press Add"
-                  onKeyPress={(e) => {
-                    if (e.key === 'Enter') {
-                      e.preventDefault();
-                      handleAddSkill();
-                    }
-                  }}
-                />
-                <button 
-                  type="button" 
-                  className="add-skill-btn"
-                  onClick={handleAddSkill}
-                >
-                  Add
-                </button>
+                <input type="text" id="skills" value={currentSkill} onChange={(e) => setCurrentSkill(e.target.value)} placeholder="Type a skill and press Add" onKeyPress={(e) => { if (e.key === 'Enter') { e.preventDefault(); handleAddSkill(); } }} />
+                <button type="button" className="add-skill-btn" onClick={handleAddSkill}>Add</button>
               </div>
-              
               {selectedSkills.length > 0 && (
                 <div className="skills-list">
                   {selectedSkills.map((skill, index) => (
-                    <span key={index} className="skill-tag">
-                      {skill}
-                      <button
-                        type="button"
-                        onClick={() => handleRemoveSkill(skill)}
-                        className="remove-skill-btn"
-                      >
-                        ×
-                      </button>
-                    </span>
+                    <span key={index} className="skill-tag">{skill}<button type="button" onClick={() => handleRemoveSkill(skill)} className="remove-skill-btn">×</button></span>
                   ))}
                 </div>
               )}
@@ -208,84 +149,40 @@ export default function CreateSellerProfile() {
 
             {/* Hourly Rate */}
             <div className="form-group">
-              <label htmlFor="hourlyRate">
-                Hourly Rate (₹)
-              </label>
-              <input
-                type="number"
-                id="hourlyRate"
-                name="hourlyRate"
-                value={formData.hourlyRate}
-                onChange={handleInputChange}
-                placeholder="e.g., 500"
-                min="0"
-              />
+              <label htmlFor="hourlyRate">Hourly Rate (₹)</label>
+              <input type="number" id="hourlyRate" name="hourlyRate" value={formData.hourlyRate} onChange={handleInputChange} placeholder="e.g., 500" min="0" />
             </div>
 
             {/* Experience */}
             <div className="form-group">
-              <label htmlFor="experience">
-                Years of Experience
-              </label>
-              <input
-                type="number"
-                id="experience"
-                name="experience"
-                value={formData.experience}
-                onChange={handleInputChange}
-                placeholder="e.g., 5"
-                min="0"
-              />
+              <label htmlFor="experience">Years of Experience</label>
+              <input type="number" id="experience" name="experience" value={formData.experience} onChange={handleInputChange} placeholder="e.g., 5" min="0" />
             </div>
 
             {/* Portfolio */}
             <div className="form-group">
-              <label htmlFor="portfolio">
-                Portfolio/Website URL
-              </label>
-              <input
-                type="url"
-                id="portfolio"
-                name="portfolio"
-                value={formData.portfolio}
-                onChange={handleInputChange}
-                placeholder="https://yourportfolio.com"
-              />
+              <label htmlFor="portfolio">Portfolio/Website URL</label>
+              <input type="url" id="portfolio" name="portfolio" value={formData.portfolio} onChange={handleInputChange} placeholder="https://yourportfolio.com" />
             </div>
 
             {/* Education */}
             <div className="form-group">
-              <label htmlFor="education">
-                Education/Certifications
-              </label>
-              <textarea
-                id="education"
-                name="education"
-                value={formData.education}
-                onChange={handleInputChange}
-                placeholder="List your education background and certifications..."
-                rows="3"
-              />
+              <label htmlFor="education">Education/Certifications</label>
+              <textarea id="education" name="education" value={formData.education} onChange={handleInputChange} placeholder="List your education background and certifications..." rows="3" />
             </div>
 
             {/* Terms */}
             <div className="form-group checkbox-group">
               <label className="checkbox-label">
                 <input type="checkbox" required />
-                <span>
-                  I agree to the <a href="/terms">Terms of Service</a> and <a href="/privacy">Privacy Policy</a>
-                </span>
+                <span>I agree to the <a href="/terms">Terms of Service</a> and <a href="/privacy">Privacy Policy</a></span>
               </label>
             </div>
 
             {/* Submit Buttons */}
             <div className="form-actions">
-              <button type="button" className="cancel-btn" onClick={() => navigate("/dashboard")}>
-                Cancel
-              </button>
-              <button type="submit" className="submit-btn">
-                Create Seller Profile
-              </button>
+              <button type="button" className="cancel-btn" onClick={() => navigate("/dashboard")}>Cancel</button>
+              <button type="submit" className="submit-btn">Create Seller Profile</button>
             </div>
           </form>
         </div>
