@@ -1,126 +1,40 @@
-.app {
+/* App.css - Fix for overlapping pages and proper layout */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.app-container {
+  min-height: 100vh;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;      
-  background-color: #f5f5f5;
-  overflow-x: hidden;         
+  flex-direction: column;
 }
 
-
-
-.login-container,
-.register-container {
-  width: 400px;
-  padding: 20px;
-  background: #ffffff;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-
-  /* 🔒 ANIMATION STABILITY FIX */
-  will-change: transform;
-  backface-visibility: hidden;
-  transform: translateZ(0);
-
-  animation: slideIn 0.6s ease-in-out;
-}
-
-
-
-.login-container h2,
-.register-container h2 {
-  text-align: center;
-  margin-bottom: 10px;
-}
-
-.subtitle {
-  text-align: center;
-  font-size: 14px;
-  margin-bottom: 20px;
-  color: #555;
-}
-
-.login-container input,
-.register-container input {
+/* Main content wrapper - prevents overlap with fixed navbar */
+.main-content {
+  flex: 1;
+  padding-top: 80px; /* Adjust this value based on your navbar height */
+  min-height: 100vh;
   width: 100%;
-  padding: 10px;
-  margin-bottom: 12px;
-  border-radius: 4px;
-  border: 1px solid #ccc;
+  position: relative;
+  overflow-x: hidden;
 }
 
-.login-container button,
-.register-container button {
+/* Ensure all page components take full width and don't overlap */
+.main-content > div {
   width: 100%;
-  padding: 10px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
+  min-height: calc(100vh - 80px);
+  position: relative;
 }
 
-.login-container button:hover,
-.register-container button:hover {
-  background-color: #0056b3;
+/* Optional: Add smooth scrolling */
+html {
+  scroll-behavior: smooth;
 }
 
-.links {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 12px;
-  font-size: 14px;
+/* Prevent horizontal scroll from transitions */
+body {
+  overflow-x: hidden;
 }
-
-
-@keyframes slideIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-
-@media (max-width: 768px) {
-  .app {
-    padding: 16px;
-    align-items: flex-start;
-  }
-
-  .login-container,
-  .register-container {
-    width: 100%;
-    max-width: 360px;
-    margin: 40px auto;
-
-
-    animation-fill-mode: both;
-  }
-
-  .links {
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-  }
-}
-
-@media (max-width: 480px) {
-  .login-container,
-  .register-container {
-    padding: 12px;
-  }
-
-  .login-container h2,
-  .register-container h2 {
-    font-size: 20px;
-  }
-
-  .subtitle {
-    font-size: 13px;
-  }
-}
-
