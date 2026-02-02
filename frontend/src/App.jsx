@@ -15,6 +15,7 @@ import Termsandconditions from "./authentication/Termsandconditions";
 import PageNotFound from "./authentication/PageNotFound";
 import SellerDashboard from "./pages/freelancerfiles/SellerDashboard";
 import CreateSellerProfile from "./pages/freelancerfiles/CreateSellerProfile";
+import Notifications from "./pages/common/Notifications";
 
 function App() {
   return (
@@ -41,7 +42,9 @@ function App() {
         <Route path="/terms-and-conditions" element={<Termsandconditions />} />
 
         <Route path="*" element={<PageNotFound />} />
+        <Route path="/notifications" element={<Notifications />} />
 
+        
       </Routes>
     </BrowserRouter>
   );
