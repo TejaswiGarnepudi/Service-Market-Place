@@ -26,20 +26,20 @@ function App() {
         <Route path="/about" element={<><Navbar /><About /></>} />
         <Route path="/contact" element={<><Navbar /><Contact /></>} />
         <Route path="/browse-services" element={<><Navbar /><BrowseServices /></>} />
-        <Route path="/dashboard" element={<><Navbar /><ClientDashboard /></>} />
 
+        {/* Dashboard Pages WITHOUT Normal Navbar */}
+        <Route path="/dashboard" element={<ClientDashboard />} />
         <Route path="/seller-profile" element={<SellerDashboard />} />
         <Route path="/create-seller-profile" element={<CreateSellerProfile />} />
         <Route path="/profile" element={<UserProfilePage />} />
-
 
         {/* Auth Pages (No Navbar) */}
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
-
         <Route path="/terms-and-conditions" element={<Termsandconditions />} />
 
+        {/* 404 Page */}
         <Route path="*" element={<PageNotFound />} />
 
       </Routes>
