@@ -94,7 +94,7 @@ export default function UserNavbar() {
           </Link>
 
           <Link to="/notifications" className="nav-link notification-link">
-            <span className="nav-icon">🔔</span>
+            <span className="nav-icon">🔔</span>Notifications
           </Link>
         </div>
 
@@ -104,7 +104,7 @@ export default function UserNavbar() {
           {/* ✅ Toggle Button */}
           <button className="mode-toggle-btn" onClick={handleModeToggle}>
             <span className="toggle-icon">
-              {mode === "buyer" ? "💼" : "🛒"}
+              {mode === "buyer" ? "💼" : "💼"}
             </span>
             <span className="toggle-text">
               Switch to {mode === "buyer" ? "Seller" : "Buyer"}
@@ -117,8 +117,8 @@ export default function UserNavbar() {
               className="profile-btn"
               onClick={() => setShowProfileDropdown(!showProfileDropdown)}
             >
-              <div className="profile-avatar">T</div>
-              <span className="profile-name">Teju</span>
+              <div className="profile-avatar"></div>
+              <span className="profile-name"></span>
               <span
                 className={`dropdown-arrow ${
                   showProfileDropdown ? "open" : ""
