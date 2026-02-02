@@ -7,7 +7,6 @@ export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
 
-  // Handle scroll effect
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
@@ -17,12 +16,10 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Close mobile menu when route changes
   useEffect(() => {
     setIsMenuOpen(false);
   }, [location]);
 
-  // Prevent body scroll when mobile menu is open
   useEffect(() => {
     if (isMenuOpen) {
       document.body.style.overflow = "hidden";
@@ -39,37 +36,71 @@ export default function Navbar() {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  // Check if link is active
   const isActive = (path) => {
     return location.pathname === path ? "active" : "";
   };
 
+  const scrollToAbout = (e) => {
+    e.preventDefault();
+    setIsMenuOpen(false);
+
+    if (location.pathname !== "/") {
+      window.location.href = "/#about";
+      return;
+    }
+
+    const aboutSection = document.getElementById("about");
+    if (aboutSection) {
+      aboutSection.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
+    }
+  };
+
   return (
     <>
-      {/* Skip to main content for accessibility */}
       <a href="#main-content" className="skip-link">
         Skip to main content
       </a>
 
       <nav className={`navbar ${isScrolled ? "scrolled" : ""}`}>
-        {/* Logo with Icon */}
+        {/* Logo */}
         <Link to="/" className="logo-container">
           <span className="logo-icon">💎</span>
           <h2 className="logo">SkillConnect</h2>
         </Link>
 
-        {/* Desktop Navigation Links */}
+        {/* Desktop Navigation */}
         <ul className="nav-links">
           <li>
             <Link to="/" className={isActive("/")}>
               Home
             </Link>
           </li>
+
           <li>
-            <Link to="/browse-services" className={isActive("/browse-services")}>
+            <a href="#about" onClick={scrollToAbout} className="nav-about-link">
+              About
+            </a>
+          </li>
+
+          {/* ✅ NEW DASHBOARD LINK */}
+          <li>
+            <Link to="/dashboard" className={isActive("/dashboard")}>
+              Dashboard
+            </Link>
+          </li>
+
+          <li>
+            <Link
+              to="/browse-services"
+              className={isActive("/browse-services")}
+            >
               Browse Services
             </Link>
           </li>
+
           <li>
             <Link to="/contact" className={isActive("/contact")}>
               Contact
@@ -77,17 +108,7 @@ export default function Navbar() {
           </li>
         </ul>
 
-        {/* Optional: Search Bar */}
-        {/* <div className="search-container">
-          <input
-            type="text"
-            className="search-input"
-            placeholder="Search services..."
-          />
-          <span className="search-icon">🔍</span>
-        </div> */}
-
-        {/* Desktop Action Buttons */}
+        {/* Desktop Actions */}
         <div className="nav-actions">
           <Link to="/login" className="login-btn">
             Login
@@ -97,7 +118,7 @@ export default function Navbar() {
           </Link>
         </div>
 
-        {/* Mobile Menu Toggle */}
+        {/* Mobile Toggle */}
         <button
           className={`menu-toggle ${isMenuOpen ? "active" : ""}`}
           onClick={toggleMenu}
@@ -118,11 +139,29 @@ export default function Navbar() {
               Home
             </Link>
           </li>
+
           <li>
-            <Link to="/browse-services" className={isActive("/browse-services")}>
+            <a href="#about" onClick={scrollToAbout} className="nav-about-link">
+              About
+            </a>
+          </li>
+
+          {/* ✅ DASHBOARD in Mobile */}
+          <li>
+            <Link to="/dashboard" className={isActive("/dashboard")}>
+              Dashboard
+            </Link>
+          </li>
+
+          <li>
+            <Link
+              to="/browse-services"
+              className={isActive("/browse-services")}
+            >
               Browse Services
             </Link>
           </li>
+
           <li>
             <Link to="/contact" className={isActive("/contact")}>
               Contact
