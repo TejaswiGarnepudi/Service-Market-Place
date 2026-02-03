@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import UserNavbar from "../../components/profilenavbar/ProfileNavbar";
 import "./ClientDashboard.css";
 
 export default function ClientDashboard() {
@@ -91,8 +90,6 @@ export default function ClientDashboard() {
 
   return (
     <div className="dashboard-wrapper">
-      <UserNavbar />
-
       <div className="client-dashboard">
 
         {/* Welcome Section */}
@@ -202,9 +199,23 @@ export default function ClientDashboard() {
 
         {/* Quick Actions */}
         <section className="quick-actions-section">
-          <Link to="/orders">Your Orders</Link>
-          <Link to="/messages">Messages</Link>
-          <Link to="/seller-profile">Become a Seller</Link>
+          <Link to="/orders" className="action-card">
+            <span className="action-icon">📦</span>
+            <h3>Your Orders</h3>
+            <p>View and manage your orders</p>
+          </Link>
+
+          <Link to="/messages" className="action-card">
+            <span className="action-icon">💬</span>
+            <h3>Messages</h3>
+            <p>Check your conversations</p>
+          </Link>
+
+          <Link to="/seller-profile" className="action-card">
+            <span className="action-icon">🧑‍💼</span>
+            <h3>Become a Seller</h3>
+            <p>Create your seller profile</p>
+          </Link>
         </section>
 
       </div>

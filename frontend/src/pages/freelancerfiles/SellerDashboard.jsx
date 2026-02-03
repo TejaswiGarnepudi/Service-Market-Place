@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import UserNavbar from "../../components/profilenavbar/ProfileNavbar";
 import "./SellerDashboard.css";
 
 export default function SellerDashboard() {
@@ -18,8 +17,6 @@ export default function SellerDashboard() {
 
   return (
     <div className="seller-dashboard-wrapper">
-      <UserNavbar />
-      
       <div className="seller-dashboard">
         <div className="dashboard-header">
           <div>

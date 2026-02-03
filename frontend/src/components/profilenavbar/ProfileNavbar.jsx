@@ -4,6 +4,7 @@ import "./ProfileNavbar.css";
 
 export default function UserNavbar() {
   const navigate = useNavigate();
+  const [search, setSearch] = useState("");
   
   // Check if user has a seller profile (using localStorage for demo)
   const [mode, setMode] = useState(() => {
@@ -58,6 +59,14 @@ export default function UserNavbar() {
     navigate("/login");
   };
 
+  const handleSearchSubmit = (e) => {
+    e.preventDefault();
+    const q = search.trim();
+    if (!q) return;
+    navigate(`/browse-services?query=${encodeURIComponent(q)}`);
+    setSearch("");
+  };
+
   return (
     <nav className="user-navbar">
       <div className="navbar-container">
@@ -71,17 +80,22 @@ export default function UserNavbar() {
 
         {/* Navigation Links */}
         <div className="navbar-links">
-          <Link to="/browse-services" className="nav-link">
-            <span className="nav-icon">🔍</span>
-            Browse Services
-          </Link>
-          <Link to="/orders" className="nav-link">
-            <span className="nav-icon">📦</span>
-            Orders
-          </Link>
-          <Link to="/messages" className="nav-link">
+          <form className="search-form" onSubmit={handleSearchSubmit}>
+            <input
+              type="text"
+              className="search-input"
+              placeholder="Browse Services"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              aria-label="Search services"
+            />
+            <button type="submit" className="search-btn">🔍</button>
+          </form>
+
+          <Link to="/orders" className="nav-link">Orders</Link>
+
+          <Link to="/messages" className="nav-link" aria-label="Messages">
             <span className="nav-icon">💬</span>
-            Messages
           </Link>
         </div>
 

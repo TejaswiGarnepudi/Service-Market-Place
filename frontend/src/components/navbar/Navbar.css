@@ -152,6 +152,40 @@
   width: 100%;
 }
 
+/* Inline nav search (desktop) */
+.nav-search { display:flex; align-items:center; gap:8px; }
+.nav-search-input { padding:6px 10px; border-radius:999px; border:1px solid rgba(0,0,0,0.06); width:160px; outline:none; }
+.nav-search-btn { background:transparent; border:none; cursor:pointer; font-size:16px; padding:6px; border-radius:6px; }
+
+.nav-search-btn:focus,
+.nav-search-btn:active {
+  outline: none;
+  box-shadow: none;
+  background: transparent;
+}
+
+/* Remove browser focus/active styling (blue box) for search buttons */
+.nav-search-btn {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+  -webkit-appearance: none;
+  appearance: none;
+  padding: 6px;
+}
+
+.nav-search-btn:focus {
+  outline: none !important;
+  box-shadow: none !important;
+  background: transparent !important;
+}
+
+/* Mobile search */
+.mobile-search { display:flex; gap:8px; padding:8px; }
+.mobile-search input { flex:1; padding:8px; border-radius:8px; border:1px solid rgba(0,0,0,0.08); }
+.mobile-search button { padding:8px 12px; border-radius:8px; }
+
 /* ===============================
    ACTION BUTTONS
    =============================== */

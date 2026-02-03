@@ -5,6 +5,7 @@ import "./Navbar.css";
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [search, setSearch] = useState("");
 
   const location = useLocation();
   const navigate = useNavigate();
@@ -44,6 +45,14 @@ export default function Navbar() {
     }
   };
 
+  const handleSearchSubmit = (e) => {
+    e.preventDefault();
+    const q = search.trim();
+    if (!q) return;
+    navigate(`/browse-services?query=${encodeURIComponent(q)}`);
+    setSearch("");
+  };
+
   return (
     <>
       <a href="#main-content" className="skip-link">
@@ -70,9 +79,16 @@ export default function Navbar() {
           <li><Link to="/dashboard" className={isActive("/dashboard")}>Dashboard</Link></li>
 
           <li>
-            <Link to="/browse-services" className={isActive("/browse-services")}>
-              Browse Services
-            </Link>
+            <form className="nav-search" onSubmit={handleSearchSubmit}>
+              <input
+                className="nav-search-input"
+                placeholder="Browse Services"
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+                aria-label="Search services"
+              />
+              <button type="submit" className="nav-search-btn">🔍</button>
+            </form>
           </li>
 
           <li><Link to="/contact" className={isActive("/contact")}>Contact</Link></li>
@@ -100,7 +116,12 @@ export default function Navbar() {
           <li><Link to="/">Home</Link></li>
           <li><button onClick={scrollToAbout}>About</button></li>
           <li><Link to="/dashboard">Dashboard</Link></li>
-          <li><Link to="/browse-services">Browse Services</Link></li>
+          <li>
+            <form className="mobile-search" onSubmit={handleSearchSubmit}>
+              <input placeholder="Browse Services" value={search} onChange={(e) => setSearch(e.target.value)} />
+              <button type="submit">🔍</button>
+            </form>
+          </li>
           <li><Link to="/contact">Contact</Link></li>
         </ul>
 
