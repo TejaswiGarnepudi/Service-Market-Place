@@ -1,39 +1,46 @@
-:root {
+/* =========================
+   Global Reset & Base Styles
+========================= */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
+
+body {
+  background-color: #ffffff;
+  color: #213547;
+  min-height: 100vh;
+}
+
+/* =========================
+   Links
+========================= */
 
 a {
   font-weight: 500;
   color: #646cff;
-  text-decoration: inherit;
+  text-decoration: none;
 }
+
 a:hover {
   color: #535bf2;
 }
 
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
+/* =========================
+   Headings
+========================= */
 
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
 }
+
+/* =========================
+   Buttons (Global)
+========================= */
 
 button {
   border-radius: 8px;
@@ -42,27 +49,52 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
   cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  transition: all 0.25s ease;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+/* =========================
+   Contact Page Utilities
+========================= */
+
+/* Input fields (used in Contact Form) */
+.input {
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 14px;
+  border: 1px solid #d1d5db;
+  font-size: 15px;
+  transition: all 0.2s ease;
+}
+
+.input:focus {
+  outline: none;
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+}
+
+/* Textarea consistency */
+textarea.input {
+  resize: none;
+}
+
+/* =========================
+   Light / Dark Mode Support
+========================= */
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #0f172a;
+    color: #f8fafc;
   }
-  a:hover {
-    color: #747bff;
+
+  .input {
+    background-color: #020617;
+    color: #f8fafc;
+    border-color: #334155;
   }
-  button {
-    background-color: #f9f9f9;
+
+  .input::placeholder {
+    color: #94a3b8;
   }
 }

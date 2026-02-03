@@ -1,0 +1,193 @@
+/* ===============================
+   CLIENT DASHBOARD - USING HOMEPAGE COLOR PALETTE
+   =============================== */
+
+/* Color Variables from Homepage */
+:root {
+  --navy: #083a4f;
+  --teal: #407e8c;
+  --gold: #d4af37;
+  --light-gold: #f4e4c1;
+  --aqua: #c0d5d6;
+  --sand: #e5e1dd;
+  --dark: #1a1a1a;
+  --grey: #6b7280;
+  --white: #ffffff;
+  --light-bg: #fafbfc;
+}
+
+/* =============================== DASHBOARD WRAPPER =============================== */
+.dashboard-wrapper {
+  min-height: 100vh;
+  background: var(--light-bg);
+  font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
+}
+
+.client-dashboard {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 40px 80px;
+}
+
+/* =============================== WELCOME SECTION =============================== */
+.welcome-section {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--teal) 100%);
+  border-radius: 24px;
+  padding: 50px 60px;
+  margin-bottom: 50px;
+  box-shadow: 0 10px 40px rgba(8, 58, 79, 0.15);
+  position: relative;
+  overflow: hidden;
+}
+
+.welcome-content { display: flex; align-items: center; gap: 25px; }
+.welcome-icon { font-size: 70px; }
+.welcome-text h1 { font-size: 42px; font-weight: 700; color: var(--white); }
+.welcome-text p { font-size: 20px; color: rgba(255,255,255,0.9); }
+
+.location-info {
+  display: flex; align-items: center; gap: 8px;
+  padding: 10px 20px; background: rgba(255,255,255,0.15);
+  border-radius: 50px; backdrop-filter: blur(10px);
+}
+
+/* =============================== SECTION HEADINGS =============================== */
+.section-heading {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 30px;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.view-all-link {
+  color: var(--teal);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+/* =============================== CATEGORIES =============================== */
+.categories-section { margin-bottom: 60px; }
+.categories-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
+
+.category-card {
+  background: var(--white);
+  border-radius: 16px;
+  padding: 30px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.category-icon {
+  width: 70px;
+  height: 70px;
+  background: linear-gradient(135deg, var(--navy), var(--teal));
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 35px;
+}
+
+/* =============================== FEATURED =============================== */
+.featured-section { margin-bottom: 60px; }
+.services-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(310px, 1fr)); gap: 30px; }
+
+.service-card {
+  background: var(--white);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.service-image-wrapper { width: 100%; height: 200px; overflow: hidden; }
+.service-image-wrapper img { width: 100%; height: 100%; object-fit: cover; }
+
+.service-content { padding: 20px; }
+.star { color: #e5e7eb; }
+.star.filled { color: var(--gold); }
+
+/* =============================== RECOMMENDED =============================== */
+.recommended-section {
+  margin-bottom: 60px;
+  padding: 50px;
+  background: var(--white);
+  border-radius: 20px;
+}
+
+.recommended-tags { display: flex; flex-wrap: wrap; gap: 15px; }
+.recommended-tag {
+  padding: 12px 24px;
+  background: var(--light-bg);
+  border-radius: 50px;
+  text-decoration: none;
+}
+
+/* =============================== ⭐ REVIEWS SECTION ⭐ =============================== */
+.reviews-section {
+  margin-bottom: 60px;
+  padding: 50px;
+  background: var(--white);
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+}
+
+.review-card {
+  background: var(--light-bg);
+  border-radius: 16px;
+  padding: 25px;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.review-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(64,126,140,0.3);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.1);
+}
+
+.review-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.review-service {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--navy);
+}
+
+.review-provider {
+  font-size: 14px;
+  color: var(--grey);
+  margin: 8px 0;
+}
+
+.review-comment {
+  font-size: 15px;
+  font-style: italic;
+  color: var(--dark);
+}
+
+/* =============================== QUICK ACTIONS =============================== */
+.quick-actions-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}

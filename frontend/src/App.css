@@ -1,42 +1,161 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+.app {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f5f5f5;
+  overflow-x: hidden;
+}
+
+
+.login-container,
+.register-container {
+  width: 400px;
+  padding: 20px;
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+
+  will-change: transform;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+
+  animation: slideIn 0.6s ease-in-out;
+}
+
+
+
+.login-container h2,
+.register-container h2 {
   text-align: center;
+  margin-bottom: 10px;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.subtitle {
+  text-align: center;
+  font-size: 14px;
+  margin-bottom: 20px;
+  color: #555;
 }
 
-@keyframes logo-spin {
+.login-container input,
+.register-container input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 12px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.login-container button,
+.register-container button {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.login-container button:hover,
+.register-container button:hover {
+  background-color: #0056b3;
+}
+
+.links {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 12px;
+  font-size: 14px;
+}
+
+
+
+@keyframes slideIn {
   from {
-    transform: rotate(0deg);
+    opacity: 0;
+    transform: translateY(20px);
   }
   to {
-    transform: rotate(360deg);
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+
+@media (max-width: 480px) {
+  .app {
+    padding: 12px;
+    align-items: flex-start;
+  }
+
+  .login-container,
+  .register-container {
+    width: 100%;
+    padding: 12px;
+    margin: 32px auto;
+    animation-fill-mode: both;
+  }
+
+  .login-container h2,
+  .register-container h2 {
+    font-size: 20px;
+  }
+
+  .subtitle {
+    font-size: 13px;
+  }
+
+  .links {
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
   }
 }
 
-.card {
-  padding: 2em;
+
+@media (min-width: 481px) and (max-width: 640px) {
+  .login-container,
+  .register-container {
+    width: 100%;
+    max-width: 360px;
+    margin: 40px auto;
+  }
 }
 
-.read-the-docs {
-  color: #888;
+
+@media (min-width: 641px) and (max-width: 768px) {
+  .app {
+    padding: 16px;
+  }
+
+  .login-container,
+  .register-container {
+    width: 380px;
+  }
+}
+
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .login-container,
+  .register-container {
+    width: 400px;
+  }
+}
+
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+  .login-container,
+  .register-container {
+    width: 420px;
+  }
+}
+
+@media (min-width: 1281px) {
+  .login-container,
+  .register-container {
+    width: 450px;
+  }
 }
