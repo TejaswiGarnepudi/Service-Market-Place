@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/navbar/Navbar";
+import ProfileNavbar from "./components/profilenavbar/ProfileNavbar";
 
 // Landing Pages
 import Homepage from "./pages/landingpage/Homepage";
@@ -26,10 +27,18 @@ import ForgotPassword from "./authentication/ForgotPasswordPage";
 import Termsandconditions from "./authentication/Termsandconditions";
 import PageNotFound from "./authentication/PageNotFound";
 
-// Layout with Navbar (For Public Pages Only)
+// Layout with Navbar
 const PublicLayout = ({ children }) => (
   <>
     <Navbar />
+    {children}
+  </>
+);
+
+// Layout with ProfileNavbar (for authenticated pages)
+const ProfileLayout = ({ children }) => (
+  <>
+    <ProfileNavbar />
     {children}
   </>
 );
@@ -38,24 +47,23 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-
         {/* 🌐 Public Pages WITH Navbar */}
         <Route path="/" element={<PublicLayout><Homepage /></PublicLayout>} />
         <Route path="/about" element={<PublicLayout><About /></PublicLayout>} />
         <Route path="/contact" element={<PublicLayout><Contact /></PublicLayout>} />
         <Route path="/browse-services" element={<PublicLayout><BrowseServices /></PublicLayout>} />
 
-        {/* 👤 Client Pages WITHOUT Normal Navbar */}
-        <Route path="/dashboard" element={<ClientDashboard />} />
-        <Route path="/orders" element={<Orders />} />
+        {/* 👤 Client Pages WITH ProfileNavbar */}
+        <Route path="/dashboard" element={<ProfileLayout><ClientDashboard /></ProfileLayout>} />
+        <Route path="/orders" element={<ProfileLayout><Orders /></ProfileLayout>} />
 
-        {/* 🧑‍💼 Freelancer Pages WITHOUT Normal Navbar */}
-        <Route path="/seller-profile" element={<SellerDashboard />} />
-        <Route path="/create-seller-profile" element={<CreateSellerProfile />} />
+        {/* 👤 Common Pages WITH ProfileNavbar */}
+        <Route path="/profile" element={<ProfileLayout><UserProfilePage /></ProfileLayout>} />
+        <Route path="/notifications" element={<ProfileLayout><Notifications /></ProfileLayout>} />
 
-        {/* 👤 Common */}
-        <Route path="/profile" element={<UserProfilePage />} />
-        <Route path="/notifications" element={<Notifications />} />
+        {/* 🧑‍💼 Freelancer Pages WITH ProfileNavbar */}
+        <Route path="/seller-profile" element={<ProfileLayout><SellerDashboard /></ProfileLayout>} />
+        <Route path="/create-seller-profile" element={<ProfileLayout><CreateSellerProfile /></ProfileLayout>} />
 
         {/* 🔐 Auth Pages (No Navbar) */}
         <Route path="/login" element={<LoginPage />} />
@@ -63,9 +71,8 @@ function App() {
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/terms-and-conditions" element={<Termsandconditions />} />
 
-        {/* ❌ 404 */}
+        {/* ❌ 404 Page */}
         <Route path="*" element={<PageNotFound />} />
-
       </Routes>
     </BrowserRouter>
   );
