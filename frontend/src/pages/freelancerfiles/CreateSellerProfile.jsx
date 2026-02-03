@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import UserNavbar from "../../components/profilenavbar/ProfileNavbar";
 import "./CreateSellerProfile.css";
 
 export default function CreateSellerProfile() {
@@ -72,8 +71,6 @@ export default function CreateSellerProfile() {
 
   return (
     <div className="create-seller-wrapper">
-      <UserNavbar />
-
       {/* Two-column layout */}
       <div className="create-seller-container">
         {/* Left Column: Hero */}
